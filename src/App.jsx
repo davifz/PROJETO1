@@ -1,17 +1,16 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import {
   Alert,
   Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
   CircularProgress,
   Container,
-  TextField,
   Typography,
 } from '@mui/material'
+
 import './App.css'
+
+import SearchBar from './components/SearchBar'
+import PokemonCard from './components/PokemonCard'
 
 function App() {
   const [pokemon, setPokemon] = useState('')
@@ -51,6 +50,16 @@ function App() {
     }
   }
 
+  const pokemonTypes = useMemo(() => {
+    if (!pokemonData) {
+      return []
+    }
+
+    return pokemonData.types.map(
+      (type) => type.type.name
+    )
+  }, [pokemonData])
+
   return (
     <Container maxWidth="md" className="app-container">
       <Box className="header">
@@ -63,29 +72,12 @@ function App() {
         </Typography>
       </Box>
 
-      <Box className="search-container">
-        <TextField
-          fullWidth
-          label="Nome do Pokémon"
-          placeholder="Ex.: pikachu"
-          value={pokemon}
-          onChange={(event) => setPokemon(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter') {
-              handleSearch()
-            }
-          }}
-        />
-
-        <Button
-          variant="contained"
-          size="large"
-          onClick={handleSearch}
-          disabled={loading}
-        >
-          Pesquisar
-        </Button>
-      </Box>
+      <SearchBar
+        pokemon={pokemon}
+        setPokemon={setPokemon}
+        onSearch={handleSearch}
+        loading={loading}
+      />
 
       <Box className="result-container">
         {loading && (
@@ -99,38 +91,10 @@ function App() {
         )}
 
         {pokemonData && (
-          <Card className="pokemon-card">
-            <CardMedia
-              component="img"
-              image={pokemonData.sprites.front_default}
-              alt={pokemonData.name}
-              className="pokemon-image"
-            />
-
-            <CardContent>
-              <Typography variant="h4" component="h2">
-                {pokemonData.name}
-              </Typography>
-
-              <Typography variant="body1">
-                ID: #{pokemonData.id}
-              </Typography>
-
-              <Typography variant="body1">
-                Altura: {pokemonData.height / 10} m
-              </Typography>
-
-              <Typography variant="body1">
-                Peso: {pokemonData.weight / 10} kg
-              </Typography>
-
-              <Typography variant="body1">
-                Tipo: {pokemonData.types
-                  .map((type) => type.type.name)
-                  .join(', ')}
-              </Typography>
-            </CardContent>
-          </Card>
+          <PokemonCard
+            pokemonData={pokemonData}
+            pokemonTypes={pokemonTypes}
+          />
         )}
       </Box>
     </Container>
