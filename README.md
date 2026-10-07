@@ -49,23 +49,33 @@ O projeto utiliza a **PokéAPI**, uma API pública que disponibiliza informaçõ
 
 Clone o repositório:
 
+```bash
 git clone https://github.com/davifz/PROJETO1.git
+```
 
 Entre na pasta do projeto:
 
+```bash
 cd pokebusca
+```
 
 Instale as dependências:
 
+```bash
 npm install
+```
 
 Execute o projeto:
 
+```bash
 npm run dev
+```
 
 Após iniciar o servidor, acesse o endereço informado, normalmente:
 
+```bash
 http://localhost:5173/
+```
 
 ## Ferramentas de apoio
 
