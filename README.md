@@ -1,16 +1,72 @@
-# React + Vite
+# PokéBusca
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida para pesquisa de informações sobre Pokémon por meio da PokéAPI.
 
-Currently, two official plugins are available:
+O projeto foi desenvolvido como parte da disciplina de Programação Web Fullstack.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sobre o projeto
 
-## React Compiler
+O PokéBusca permite que o usuário pesquise um Pokémon pelo nome e visualize algumas de suas principais informações.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A aplicação realiza uma requisição à PokéAPI e apresenta os dados recebidos diretamente na interface.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Pesquisar Pokémon pelo nome;
+- Consultar dados através da PokéAPI;
+- Exibir imagem do Pokémon;
+- Exibir nome e número de identificação;
+- Exibir altura e peso;
+- Exibir os tipos do Pokémon;
+- Informar quando o Pokémon não é encontrado;
+
+## Tecnologias utilizadas
+
+- **React.js** - desenvolvimento da interface;
+- **Vite** - configuração e execução do projeto;
+- **JavaScript** - lógica da aplicação;
+- **Material UI** - componentes e interface visual;
+- **PokéAPI** - API pública utilizada para obtenção dos dados;
+- **Fetch API** - realização das requisições HTTP;
+- **Git e GitHub** - versionamento e armazenamento do projeto.
+
+## Requisitos do projeto
+
+A aplicação foi desenvolvida seguindo os requisitos propostos para o projeto:
+
+- Utilização do **React.js**;
+- Aplicação seguindo o conceito de **SPA (Single Page Application)**;
+- Consumo de uma **API pública com dados em JSON**;
+- Utilização de **AJAX**, através do `fetch()`;
+- Utilização de uma funcionalidade da lista de React Hooks proposta na atividade;
+- Utilização de uma **biblioteca externa para React**, neste caso o Material UI.
+
+## API utilizada
+
+O projeto utiliza a **PokéAPI**, uma API pública que disponibiliza informações sobre Pokémon.
+
+## Como executar o projeto
+
+Clone o repositório:
+
+git clone https://github.com/davifz/PROJETO1.git
+
+Entre na pasta do projeto:
+
+cd pokebusca
+
+Instale as dependências:
+
+npm install
+
+Execute o projeto:
+
+npm run dev
+
+Após iniciar o servidor, acesse o endereço informado, normalmente:
+
+http://localhost:5173/
+
+## Ferramentas de apoio
+
+Foi utilizada IA (Google Gemini) como apoio no desenvolvimento, principalmente para esclarecimento de dúvidas e auxílio na resolução de problemas.
