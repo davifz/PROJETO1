@@ -1,55 +1,131 @@
+/* Importando uma fonte legal (opcional, o MUI já usa Roboto, mas fica a sugestão) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #060606 0%, #362b2b 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
 .app-container {
   min-height: 100vh;
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 60px;
 }
 
 .header {
   text-align: center;
   margin-bottom: 40px;
+  padding: 20px;
 }
 
 .header h1 {
   font-weight: 700;
   margin-bottom: 10px;
+  background: linear-gradient(45deg, #e0e8ef, #00052c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+}
+
+.header p {
+  color: #e8e0e0;
+  font-size: 1.1rem;
 }
 
 .search-container {
   display: flex;
   gap: 16px;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.08),
+    inset 0 2px 5px rgba(255, 255, 255, 0.8),
+    0 0 0 4px rgba(59, 76, 202, 0.05);
 }
 
 .search-container button {
   height: 56px;
   min-width: 130px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@media (max-width: 600px) {
-  .search-container {
-    flex-direction: column;
-  }
-
-  .search-container button {
-    width: 100%;
-  }
+.search-container button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(59, 76, 202, 0.4);
 }
 
 .result-container {
   display: flex;
   justify-content: center;
   margin-top: 40px;
+  min-height: 400px;
 }
 
 .pokemon-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
 }
 
+.pokemon-card:hover {
+  transform: translateY(-5px);
+}
+
+.pokemon-card::before {
+  content: '';
+  position: absolute;
+  top: 85px; /* Ajuste dependendo de onde a imagem fica no card */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.pokemon-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- IMAGEM DO POKÉMON --- */
 .pokemon-image {
-  width: 200px !important;
-  height: 200px !important;
+  width: 240px !important;
+  height: 240px !important;
   object-fit: contain !important;
-  margin: 20px auto 0;
+  margin: 10px auto 20px;
+  filter: drop-shadow(0px 18px 12px rgba(0, 0, 0, 0.25));
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
